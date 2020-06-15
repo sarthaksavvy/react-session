@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Day1</title>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    Welcome to Session, Day 1
+    <div id="root" class="red"></div>
+    <script type="text/babel">
+      let root = document.getElementById("root");
+      // <span>
+      //   <h1>I am h1 tag from react</h1>
+      // </span>;
+      // let myh1 = React.createElement("h1", {
+      //   children: "I am h1 tag from react",
+      // });
+      // let el = React.createElement("span", {
+      //   children: myh1,
+      //   id: "child",
+      //   color: "red",
+      // });
+
+      let mydiv = (
+        <div>
+          <span>
+            <h1>
+              <strong>I am jsx</strong>
+            </h1>
+          </span>
+        </div>
+      );
+      // type, props, children
+      // el react element
+      // console.log(React.version);
+      ReactDOM.render(mydiv, root); // 2. target , 1. new element
+    </script>
+  </body>
+</html>
