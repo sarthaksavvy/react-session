@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Day 2</title>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+
+  <body>
+    Welcome to Session, Day 1
+    <div id="root" class="red"></div>
+
+    <script type="text/babel">
+      let root = document.getElementById("root");
+      let sourceCode = "https://github.com/sarthaksavvy/react-session";
+      let MyTitle = function ({ sourceCode }) {
+        return (
+          <React.Fragment>
+            <h1>
+              <strong>{sourceCode}</strong>
+            </h1>
+            <div>my div</div>
+          </React.Fragment>
+        );
+      };
+      //   console.log(<MyTitle sourceCode={sourceCode} />);
+
+      let mydiv = (
+        <div>
+          <span>
+            <MyTitle sourceCode={sourceCode} />
+          </span>
+        </div>
+      );
+      ReactDOM.render(mydiv, root); // 2. target , 1. new element
+      // root.appendChild(el);
+    </script>
+  </body>
+</html>

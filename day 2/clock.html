@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Day 2</title>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+
+  <body>
+    Welcome to Session, Day 2
+    <div id="root" class="red"></div>
+
+    <script type="text/babel">
+      let root = document.getElementById("root");
+
+      let Clock = function () {
+        const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+        setInterval(() => {
+          console.log("interval");
+          setTime(new Date().toLocaleTimeString());
+        }, 1000);
+        return (
+          <div style={{ color: "red", backgroundColor: "blue" }}>{time}</div>
+        );
+      };
+
+      ReactDOM.render(<Clock />, root);
+    </script>
+  </body>
+</html>
