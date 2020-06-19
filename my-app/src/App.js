@@ -50,18 +50,28 @@ import Content from "./components/Content";
 
 function App() {
   const [title] = useState("My React App");
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(null);
 
-  React.useEffect(() => {
-    console.log("I am App Component");
-  });
+  // React.useEffect(() => {
+  //   console.log("I am App Component");
+  // }, []); //componentDidMount
+
+  // React.useEffect(() => {
+  //   if (isOpen) {
+  //     console.log("Div is showing");
+  //   }
+  // }, [isOpen]); // componentWillUpdate
+
+  // React.useEffect(() => {
+  //   console.log("Title is changed");
+  // }, [title]); // componentWillUpdate
 
   return (
     <>
       <Header title={title} />
       <div className="h-screen">
         <div className="flex justify-center">
-          <div className="w-1/2">
+          <div className="w-1/2 text-center">
             <button
               className="bg-pink-600 p-2 rounded shadow text-white"
               onClick={() => setisOpen(!isOpen)}
