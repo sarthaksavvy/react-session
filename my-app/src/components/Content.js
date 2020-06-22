@@ -2,27 +2,20 @@ import React, { useEffect, useState } from "react";
 import Image from "./ImageComp";
 import Images from "./ImagesComp";
 import ImagesComp from "./ImagesComp";
+import AppContext from "../store";
 
-export default function Content({ images, setimages }) {
-  const [newImageUrl, setnewImageUrl] = React.useState("");
-
-  function handleNewImage() {
-    setimages([...images, newImageUrl]);
-    setnewImageUrl("");
-  }
+export default function Content() {
+  const [{ handleNewImage, setnewImageUrl, newImageUrl }] = React.useContext(
+    AppContext
+  );
 
   function handleChange(event) {
     setnewImageUrl(event.target.value);
   }
 
-  function handleRemove(removeableIndex) {
-    setimages(images.filter((image, index) => index !== removeableIndex));
-  }
-
   return (
     <div>
-      <ImagesComp images={images} handleRemove={handleRemove} />
-
+      <ImagesComp />
       <div className="my-5">
         <input
           type="text"

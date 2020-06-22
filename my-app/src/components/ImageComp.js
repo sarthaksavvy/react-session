@@ -1,6 +1,8 @@
 import React from "react";
+import AppContext from "../store";
 
-export default function ImageComp({ image, i, myRand, handleRemove }) {
+export default function ImageComp({ image, i, myRand }) {
+  const [{ handleRemove }] = React.useContext(AppContext);
   const [isHovering, setIsHovering] = React.useState(false);
 
   function handleMouseOver() {

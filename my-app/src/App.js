@@ -1,53 +1,8 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 import AppContext from "./store";
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { title: "My React App", isOpen: false };
-//   }
-
-//   componentDidMount() {
-//     console.log("I am App component");
-//   }
-
-//   componentDidUpdate() {
-//     console.log("I am App and I am updated");
-//   }
-
-//   handleClick = () => {
-//     this.setState({ isOpen: !this.state.isOpen });
-//   };
-
-//   //  Component LifeCycle
-
-//   render() {
-//     console.log("I am inside render");
-//     return (
-//       <>
-//         <Header title={this.state.title} />
-//         <div className="h-screen">
-//           <div className="flex justify-center">
-//             <div className="w-1/2">
-//               <button
-//                 className="bg-pink-600 p-2 rounded shadow text-white"
-//                 onClick={this.handleClick}
-//               >
-//                 Toggle Me
-//               </button>
-//               {this.state.isOpen ? <Content /> : null}
-//             </div>
-//           </div>
-//         </div>
-//         <Footer />
-//       </>
-//     );
-//   }
-// }
 
 function App() {
   const [title] = useState("My React App");
@@ -68,15 +23,38 @@ function App() {
     return state;
   }
 
-  const [state, dispatch] = React.useReducer(reducer, {
-    name: "sarthak",
-    email: "sarthak@bitfumes.com",
-  });
   // const ACTION_UPDATE_EMAIL = {
   //   type: "UPDATE_EMAIL",
   //   payload: "sarthak1@bitfumes.com",
   // };
   // console.log(dispatch(ACTION_UPDATE_EMAIL));
+
+  function handleRemove(removeableIndex) {
+    setimages(images.filter((image, index) => index !== removeableIndex));
+  }
+
+  function handleNewImage() {
+    setimages([...images, newImageUrl]);
+    setnewImageUrl("");
+  }
+  const [newImageUrl, setnewImageUrl] = React.useState("");
+
+  // const [state, dispatch] = React.useReducer(reducer, {
+  //   images,
+  //   setimages,
+  //   handleRemove,
+  //   handleNewImage,
+  //   newImageUrl,
+  //   setnewImageUrl,
+  // });
+  const state = {
+    images,
+    setimages,
+    handleRemove,
+    handleNewImage,
+    newImageUrl,
+    setnewImageUrl,
+  };
 
   return (
     <>
@@ -84,8 +62,8 @@ function App() {
       <div className="h-screen">
         <div className="flex justify-center">
           <div className="w-10/12 text-center mt-10">
-            <AppContext.Provider value={[{ name: "sarthak" }]}>
-              <Content images={images} setimages={setimages} />
+            <AppContext.Provider value={[state]}>
+              <Content />
             </AppContext.Provider>
           </div>
         </div>
