@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Images({ image, i, myRand, handleRemove }) {
+export default function ImageComp({ image, i, myRand, handleRemove }) {
   const [isHovering, setIsHovering] = React.useState(false);
 
   function handleMouseOver() {
