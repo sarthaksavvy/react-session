@@ -1,8 +1,8 @@
 import React from "react";
-import AppContext from "../store";
+import AppContext, { REMOVE_IMAGE } from "../store";
 
 export default function ImageComp({ image, i, myRand }) {
-  const [{ handleRemove }] = React.useContext(AppContext);
+  const [, dispatch] = React.useContext(AppContext);
   const [isHovering, setIsHovering] = React.useState(false);
 
   function handleMouseOver() {
@@ -11,6 +11,10 @@ export default function ImageComp({ image, i, myRand }) {
 
   function handleMouseLeave() {
     setIsHovering(false);
+  }
+
+  function removeImage() {
+    dispatch({ type: REMOVE_IMAGE, payload: i });
   }
 
   return (
@@ -23,7 +27,7 @@ export default function ImageComp({ image, i, myRand }) {
       <div className={`relative ${isHovering ? "" : "hidden"}`}>
         <i
           className="fas fa-times absolute right-0 cursor-pointer"
-          onClick={() => handleRemove(i)}
+          onClick={removeImage}
         ></i>
       </div>
       <img

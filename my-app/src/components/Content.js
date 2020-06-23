@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Image from "./ImageComp";
-import Images from "./ImagesComp";
+import React from "react";
 import ImagesComp from "./ImagesComp";
-import AppContext from "../store";
+import AppContext, { ADD_IMAGE } from "../store";
 
 export default function Content() {
-  const [{ handleNewImage, setnewImageUrl, newImageUrl }] = React.useContext(
-    AppContext
-  );
+  const [, dispatch] = React.useContext(AppContext);
+  const [newImageUrl, setnewImageUrl] = React.useState("");
 
   function handleChange(event) {
     setnewImageUrl(event.target.value);
+  }
+
+  function addNewImage() {
+    dispatch({ type: ADD_IMAGE, payload: newImageUrl });
   }
 
   return (
@@ -25,7 +26,7 @@ export default function Content() {
         />
         <button
           className="p-2 bg-yellow-600 text-white rounded mx-2"
-          onClick={handleNewImage}
+          onClick={addNewImage}
         >
           Add Image
         </button>

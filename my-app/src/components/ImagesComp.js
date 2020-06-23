@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Image from "./ImageComp";
 import ImageComp from "./ImageComp";
 import AppContext from "../store";
 
