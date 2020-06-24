@@ -10,6 +10,11 @@ export default function Content() {
     setnewImageUrl(event.target.value);
   }
 
+  const urlRef = React.useRef();
+  // React.useEffect(() => {
+  //   // urlRef.current.focus();
+  // }, []);
+
   function addNewImage() {
     dispatch({ type: ADD_IMAGE, payload: newImageUrl });
   }
@@ -21,6 +26,7 @@ export default function Content() {
         <input
           type="text"
           className="p-2 rounded shadow border border-gray-800"
+          ref={urlRef}
           value={newImageUrl}
           onChange={handleChange}
         />

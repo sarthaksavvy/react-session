@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import AppContext from "./store";
 import { reducer } from "./store";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [title] = useState("My React App");
@@ -23,19 +25,26 @@ function App() {
   const [state, dispatch] = React.useReducer(reducer, { images });
 
   return (
-    <>
+    <Router>
       <Header title={title} />
       <div className="h-screen">
         <div className="flex justify-center">
           <div className="w-10/12 text-center mt-10">
-            <AppContext.Provider value={[state, dispatch]}>
-              <Content />
-            </AppContext.Provider>
+            <Switch>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/">
+                <AppContext.Provider value={[state, dispatch]}>
+                  <Content />
+                </AppContext.Provider>
+              </Route>
+            </Switch>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 
