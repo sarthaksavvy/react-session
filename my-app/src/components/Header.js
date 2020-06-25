@@ -11,6 +11,9 @@ export default function Header({ title }) {
         <Link to="/login">Login</Link>
       </p>
       <p className="mx-2">
+        <Link to="/users">Users</Link>
+      </p>
+      <p className="mx-2">
         <Link to="/about">About</Link>
       </p>
     </header>

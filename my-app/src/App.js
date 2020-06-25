@@ -11,7 +11,7 @@ function App() {
       <Header title={title} />
       <div className="h-screen">
         <div className="flex justify-center">
-          <div className="w-10/12 text-center mt-10">
+          <div className="w-10/12 mt-10">
             <AppRouter />
           </div>
         </div>
