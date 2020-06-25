@@ -1,5 +1,5 @@
 import React from "react";
-import AppContext, { REMOVE_IMAGE } from "../store";
+import AppContext, { REMOVE_IMAGE } from "../../store";
 
 export default function ImageComp({ image, i, myRand }) {
   const [, dispatch] = React.useContext(AppContext);

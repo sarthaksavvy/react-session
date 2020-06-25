@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ImageComp from "./ImageComp";
-import AppContext from "../store";
+import AppContext from "../../store";
 
 export default function ImagesComp() {
   const [{ images }] = React.useContext(AppContext);

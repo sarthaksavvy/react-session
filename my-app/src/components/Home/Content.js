@@ -1,6 +1,6 @@
 import React from "react";
 import ImagesComp from "./ImagesComp";
-import AppContext, { ADD_IMAGE } from "../store";
+import AppContext, { ADD_IMAGE } from "../../store";
 
 export default function Content() {
   const [, dispatch] = React.useContext(AppContext);

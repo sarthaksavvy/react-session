@@ -10,7 +10,9 @@ export default function Header({ title }) {
       <p className="mx-2">
         <Link to="/login">Login</Link>
       </p>
-      <p className="mx-2">About</p>
+      <p className="mx-2">
+        <Link to="/about">About</Link>
+      </p>
     </header>
   );
 }
