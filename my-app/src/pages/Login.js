@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 
-function Login({ history }) {
+function Login() {
+  const history = useHistory();
   const [form, setform] = React.useState({ email: "", password: "" });
   const [error, seterror] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
@@ -17,7 +18,7 @@ function Login({ history }) {
     seterror("");
     setIsLoading(true);
     axios
-      .post("https://reqres.in/api/login?delay=1", form)
+      .post("/api/login?delay=1", form)
       .then((res) => {
         Cookies.set("token", res.data.token);
         history.push("/");
@@ -32,7 +33,7 @@ function Login({ history }) {
   return (
     <div className="flex justify-center">
       <form
-        className="w-1/2 bg-gray-100 border rounded shadow py-10"
+        className="w-1/2 bg-gray-100 border rounded shadow py-10 text-center"
         onSubmit={handleForm}
       >
         <h1 className="text-3xl">Login Here</h1>
@@ -74,4 +75,4 @@ function Login({ history }) {
   );
 }
 
-export default withRouter(Login);
+export default Login;
