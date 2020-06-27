@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
+import Auth from "../middleware/Auth";
 
-export default function Users() {
+function Users() {
   const [users, setUsers] = useState({ data: [] });
   const clearedForm = { name: "", job: "" };
   const [form, setform] = React.useState(clearedForm);
@@ -35,10 +35,6 @@ export default function Users() {
   }
 
   useEffect(() => {
-    const token = Cookies.get("token");
-    if (!token) {
-      history.push("/login");
-    }
     const getData = async () => {
       const { data } = await Axios.get(`/api/unknown`);
       setUsers(data);
@@ -94,3 +90,5 @@ export default function Users() {
     </div>
   );
 }
+
+export default Auth(Users);

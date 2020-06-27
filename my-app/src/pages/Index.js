@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import AppContext, { reducer } from "../store";
 import Content from "../components/Home/Content";
+import Auth from "../middleware/Auth";
 
-export default function Index() {
+function Index() {
   const images = [
     "https://images.unsplash.com/photo-1592421817004-876c579a18e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
     "https://images.unsplash.com/photo-1592436259366-18ab6da5f195?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
@@ -22,3 +23,5 @@ export default function Index() {
     </AppContext.Provider>
   );
 }
+
+export default Auth(Index);

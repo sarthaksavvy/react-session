@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+import Guest from "../middleware/Guest";
+import GlobalContext from "../store/global";
 
 function Login() {
+  const [, dispatch] = useContext(GlobalContext);
   const history = useHistory();
   const [form, setform] = React.useState({ email: "", password: "" });
   const [error, seterror] = React.useState("");
@@ -21,7 +24,9 @@ function Login() {
       .post("/api/login?delay=1", form)
       .then((res) => {
         Cookies.set("token", res.data.token);
+        dispatch({ type: "SET_LOGIN", payload: res.data.token });
         history.push("/");
+        // window.location.href = "/";
         // setIsLoading(false);
       })
       .catch((err) => {
@@ -75,4 +80,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Guest(Login);
