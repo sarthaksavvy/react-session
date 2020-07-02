@@ -5,12 +5,12 @@ const token = Cookies.get("token");
 let user = {};
 let loggedIn = false;
 
-function validateToken() {
-  if (tokenIsValid) {
-    user = "fromToken";
-    loggedIn = true;
-  }
-}
+// function validateToken() {
+//   if (tokenIsValid) {
+//     user = "fromToken";
+//     loggedIn = true;
+//   }
+// }
 
 export const InitialState = { loggedIn, user };
 
