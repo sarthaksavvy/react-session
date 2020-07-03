@@ -36,7 +36,7 @@ function Users() {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await Axios.get(`/api/unknown`);
+      const { data } = await Axios.get(`/api/unknown?delay=1`);
       setUsers(data);
     };
     getData();
